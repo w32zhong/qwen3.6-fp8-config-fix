@@ -10,7 +10,7 @@ docker run -it --gpus all --ipc=host \
         lmsysorg/sglang:v0.5.10.post1-cu130 \
         python3 -m sglang.launch_server \
                 --host 0.0.0.0 --port 30000 \
-                --tp 4 --mem-fraction-static 0.7 \
+                --tp 4 --mem-fraction-static 0.8 \
                 --cuda-graph-max-bs 2 \
                 --prefill-max-requests 1 \
                 --chunked-prefill-size 1024 \
@@ -22,6 +22,5 @@ docker run -it --gpus all --ipc=host \
                 --context-length 41000 \
                 --allow-auto-truncate \
                 --disable-fast-image-processor \
-                --mm-max-concurrent-calls 1 \
                 --mm-process-config '{"image":{"max_pixels":40000}}'
 ```
