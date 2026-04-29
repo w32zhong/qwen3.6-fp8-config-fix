@@ -15,6 +15,7 @@ docker run -it --gpus all --ipc=host \
                 --prefill-max-requests 1 \
                 --chunked-prefill-size 1024 \
                 --model-path /mnt/Models/Qwen/Qwen3.6-27B-FP8 \
+                --reasoning-parser qwen3-thinking \
                 --tool-call-parser qwen3_coder \
                 --quantization fp8 \
                 --kv-cache-dtype fp8_e4m3 \
@@ -22,4 +23,10 @@ docker run -it --gpus all --ipc=host \
                 --allow-auto-truncate \
                 --disable-fast-image-processor \
                 --mm-process-config '{"image":{"max_pixels":40000}}'
+```
+
+Prompt:
+```txt
+Always encapsulate your reasoning in <think></think> tags and provide the final
+answer afterward.
 ```
